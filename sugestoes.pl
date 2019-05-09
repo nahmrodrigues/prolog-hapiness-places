@@ -87,15 +87,30 @@ cidadeMedia(Id, Populacao) :- populacao(Id, Populacao), Populacao > 50000, Popul
 cidadeGrande(Id, Populacao) :- populacao(Id, Populacao), Populacao > 150000.
 
 
-filtro(Tipo, Estado, Id) :- 
+filtro(Tipo, Estado, Id) :-
     Tipo = 'pequena' -> cidadePequena(Id, _), localidade(Id, _, Estado);
     (Tipo = 'média' -> cidadeMedia(Id, _), localidade(Id, _, Estado));
     (Tipo = 'grande' -> cidadeGrande(Id, _), localidade(Id, _, Estado)).
 
+sugere(Sexo,Raca,Tipo,Estado) :-
+  /*Aqui temos todas as cidades filtradas por estado e tipo*/
+  filtro(Tipo,Estado,Id),
+  /*Aqui temos todos os indices das cidades já filtradas e de acordo aos dados do usuário*/
+  indicesIDHM(Sexo,Raca,Id,Indice),
+  /*Aqui devemos escolher as cidades com os 2 maiores índices*/
+  /*maioresIndices(Id,Indice),*/
+  /*Aqui iremos pegar o Nome e o estado dos locais a serem sugeridos*/
+  localidade(Id,Nome,Estado),
+  printIndices(Nome, Estado,Indice),fail;
+  write('FIM').
+
+printIndices(Nome, Estado, Indice) :-
+  write('\nCidade  : '), write(Nome), write('/'), write(Estado), write(' - Indice:'), write(Indice), nl.
+
 
 indicesIDHM(Sexo, Raca, Id, Indice) :-
     Sexo = 'fem', Raca = 'neg' -> calculoIDHM(Id, 1.0, 0.0, 1.0, 0.0, Indice);
-    (Sexo = 'fem', Raca = 'bra' -> calculoIDHM(Id, 1.0, 0.0, 0.0, 1.0, Indice));  
+    (Sexo = 'fem', Raca = 'bra' -> calculoIDHM(Id, 1.0, 0.0, 0.0, 1.0, Indice));
     (Sexo = 'mas', Raca = 'neg' -> calculoIDHM(Id, 0.0, 1.0, 1.0, 0.0, Indice));
     (Sexo = 'mas', Raca = 'bra' -> calculoIDHM(Id, 0.0, 1.0, 0.0, 1.0, Indice)).
 
@@ -107,7 +122,7 @@ calculoIDHM(Id, PesoF, PesoM, PesoN, PesoB, Indice) :-
     idhmEducacaoMulheres(Estado, IDHMEducMul), idhmEducacaoHomens(Estado, IDHMEducHom), idhmEducacaoNegros(Estado, IDHMEducNeg), idhmEducacaoBrancos(Estado, IDHMEducBra),
     idhmRendaMulheres(Estado, IDHMRendMul), idhmRendaHomens(Estado, IDHMRendHom), idhmRendaNegros(Estado, IDHMRendNeg), idhmRendaBrancos(Estado, IDHMRendBra),
     idhmLongevidadeMulheres(Estado, IDHMLongMul), idhmLongevidadeHomens(Estado, IDHMLongHom), idhmLongevidadeNegros(Estado, IDHMLongNeg), idhmLongevidadeBrancos(Estado, IDHMLongBra),
-    Indice is (IDHM + IDHMEduc + IDHMRend + IDHMLong) * 0.5 + 
+    Indice is (IDHM + IDHMEduc + IDHMRend + IDHMLong) * 0.5 +
               (((IDHMMul + IDHMEducMul + IDHMRendMul + IDHMLongMul) * PesoF) +
               ((IDHMHom + IDHMEducHom + IDHMRendHom + IDHMLongHom) * PesoM) +
               ((IDHMNeg + IDHMEducNeg + IDHMRendNeg + IDHMLongNeg) * PesoN) +
