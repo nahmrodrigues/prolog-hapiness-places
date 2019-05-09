@@ -18,10 +18,8 @@ def _format_column_values(transformation, value):
 
     result = None
 
-    if transformation is None:
+    if transformation == TransformationTypes.NONE:
         result = value
-    elif transformation == TransformationTypes.NONE:
-        result = value.lower().replace(' ', '_').replace("'", '')
     elif transformation == TransformationTypes.UF:
         result = idToUf[int(value)]
     elif transformation == TransformationTypes.FLOAT:
