@@ -1,27 +1,27 @@
-temId(rondônia, 11).
-temId(acre, 12).
-temId(amazonas, 13).
-temId(roraima, 14).
-temId(pará, 15).
-temId(amapá, 16).
-temId(tocantins, 17).
-temId(maranhão, 21).
-temId(piauí, 22).
-temId(ceará, 23).
-temId(rio_grande_do_norte, 24).
-temId(paraíba, 25).
-temId(pernambuco, 26).
-temId(alagoas, 27).
-temId(sergipe, 28).
-temId(bahia, 29).
-temId(minas_gerais, 31).
-temId(espírito_santo, 32).
-temId(rio_de_janeiro, 33).
-temId(são_paulo, 35).
-temId(paraná, 41).
-temId(santa_catarina, 42).
-temId(rio_grande_do_sul, 43).
-temId(mato_grosso_do_sul, 50).
-temId(mato_grosso, 51).
-temId(goiás, 52).
-temId(distrito_federal, 53).
+estado(rondônia, 11, ro).
+estado(acre, 12, ac).
+estado(amazonas, 13, am).
+estado(roraima, 14, rr).
+estado(pará, 15, pa).
+estado(amapá, 16, ap).
+estado(tocantins, 17, to).
+estado(maranhão, 21, ma).
+estado(piauí, 22, pi).
+estado(ceará, 23, ce).
+estado(rio_grande_do_norte, 24, rn).
+estado(paraíba, 25, pb).
+estado(pernambuco, 26, pe).
+estado(alagoas, 27, al).
+estado(sergipe, 28, se).
+estado(bahia, 29, ba).
+estado(minas_gerais, 31, mg).
+estado(espírito_santo, 32, es).
+estado(rio_de_janeiro, 33, rj).
+estado(são_paulo, 35, sp).
+estado(paraná, 41, pr).
+estado(santa_catarina, 42, sc).
+estado(rio_grande_do_sul, 43, rs).
+estado(mato_grosso_do_sul, 50, ms).
+estado(mato_grosso, 51, mt).
+estado(goiás, 52, go).
+estado(distrito_federal, 53, df).
