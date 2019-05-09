@@ -8,9 +8,9 @@ def baseCreation(basename='base.pl', csv='', columns=[], funcname=''):
     basename = name of file that will be created\n
     csv = name of file to be readen\n
     columns = list of columns that should be readen\n
-        each list item must be a list where:\n
-        1 element of sublist is the column name\n
-        2 element of sublist must be one of:\n
+        each list item must be a sublist where:\n
+        1st element of sublist is the column name\n
+        2nd element of sublist must be one of below:\n
             'none' if no special treatment is required\n
             'name' if the columns may contain uppercases, spaces or special char\n
             'uf' if the colmns are uf id that must be translated to its initials\n
