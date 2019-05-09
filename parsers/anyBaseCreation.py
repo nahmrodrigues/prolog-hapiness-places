@@ -25,12 +25,7 @@ def baseCreation(basename='base.pl', csv='', columns=[], funcname=''):
     for index, row in df.iterrows():
         if row['ANO'] != 2010:
             continue
-        # cityName = row['Município']
-        # cityName = cityName.lower().replace(' ', '_').replace('\'', '')
-        # file.write('localidade(' +
-        #         str(row['Codmun6']) + ', ' +
-        #         cityName + ', ' +
-        #         idToUf[row['UF']] + ').\n')
+ 
         line = funcname + '('
         for i, item in enumerate(columns):
             
