@@ -4,7 +4,7 @@ import pandas as pd
 from idToUfDict import idToUf
 
 def convertStateToProlog():
-    filename = 'idUfKnowBase.pl'
+    filename = '../knowbases/idUfKnowBase.pl'
     df = pd.read_csv('../assets/dados_uf.csv', sep=',', engine='python')
 
     file = open(filename, "w")
@@ -21,3 +21,4 @@ def convertStateToProlog():
 
     file.close()
 
+convertStateToProlog()
