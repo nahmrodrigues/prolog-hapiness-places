@@ -1,7 +1,9 @@
 import pandas as pd
+
 from os import path
-from idToUfDict import idToUf
 from enum import Enum
+
+from idToUfDict import idToUf
 
 class TranformationTypes(Enum):
     NONE = 0
@@ -10,9 +12,10 @@ class TranformationTypes(Enum):
 
 def format_column_values(transformation, value):
     """
-    Apply transformation on column value
-        'name': substitue special characters
-        'uf': get UF name from id
+    Tranform a column value representation for better fitting database
+
+    :param int transformation: type of tranformation to be applied
+    :param str value: the value to be tranformed
     """
 
     result = None
@@ -31,10 +34,12 @@ def format_column_values(transformation, value):
 
 def convertToProlog(basename, csv_file, columns, fact_name):
     """
-    basename = name of file that will be created
-    csv_file = name of file to be readen
-    columns = key is column name and value is the type of operation to be applied on value
-    fact_name = name of functor that will be created
+    Convert a CSV base to Prolog
+
+    :param str basename: name of file that will be created
+    :param str csv_file: name of file to be readen
+    :param dict columns: key is column name and value is the type of operation to be applied on value
+    :param str fact_name: name of functor that will be created
     """
 
     filename = path.join('../knowbases', basename)
