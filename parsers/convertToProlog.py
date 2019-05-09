@@ -1,6 +1,12 @@
 import pandas as pd
 from os import path
 from idToUfDict import idToUf
+from enum import Enum
+
+class TranformationTypes(Enum):
+    NONE = 0
+    UF = 1
+    FLOAT = 2
 
 def format_column_values(transformation, value):
     """
@@ -13,10 +19,12 @@ def format_column_values(transformation, value):
 
     if transformation is None:
         result = value
-    elif transformation == 'name':
+    elif transformation == TranformationTypes.NONE:
         result = value.lower().replace(' ', '_').replace("'", '')
-    elif transformation == 'uf':
+    elif transformation == TranformationTypes.UF:
         result = idToUf[int(value)]
+    elif transformation == TranformationTypes.FLOAT:
+        result = str(value).replace(',', '.')
 
     return result
 
@@ -36,7 +44,7 @@ def convertToProlog(basename, csv_file, columns, fact_name):
 
     lines = ['{}({}).\n'.format(
                 fact_name,
-                ','.join(
+                ', '.join(
                    format_column_values(transf, str(row[name])) for name, transf in columns.items()
                 )
              ) for _, row in df.iterrows()]
@@ -45,10 +53,14 @@ def convertToProlog(basename, csv_file, columns, fact_name):
         f.writelines(lines)
 
 if __name__ == '__main__':
+    columns = {
+        'UF': TranformationTypes.UF,
+        'IDHM': TranformationTypes.FLOAT,
+    }
+
     convertToProlog(
         basename='test.pl',
         csv_file='dados_uf.csv',
-        columns={'UF': 'uf',
-                 'IDHM': None},
+        columns=columns,
         fact_name='idhm'
     )
