@@ -3,10 +3,10 @@
 from collections import namedtuple
 from convert_to_prolog import TransformationTypes
 
-Base = namedtuple('Base', ('name', 'original_base', 'fact_name', 'query', 'columns'))
+Database = namedtuple('Database', ('name', 'original_base', 'fact_name', 'query', 'columns'))
 
-bases = (
-    Base(
+databases = (
+    Database(
         name='localities',
         original_base='dados_mun',
         fact_name='localidade',
@@ -17,7 +17,7 @@ bases = (
             'UF': TransformationTypes.ID_UF,
         }
     ),
-    Base(
+    Database(
         name='idhm',
         original_base='dados_mun',
         fact_name='idhm',
@@ -27,7 +27,7 @@ bases = (
             'IDHM': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_education',
         original_base='dados_mun',
         fact_name='idhmEducacao',
@@ -37,7 +37,7 @@ bases = (
             'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_income',
         original_base='dados_mun',
         fact_name='idhmRenda',
@@ -47,7 +47,7 @@ bases = (
             'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_longevity',
         original_base='dados_mun',
         fact_name='idhmLongevidade',
@@ -57,7 +57,7 @@ bases = (
             'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='population',
         original_base='dados_mun',
         fact_name='populacao',
@@ -70,7 +70,7 @@ bases = (
 
 
     # Estados
-    Base(
+    Database(
         original_base='sexo-uf',
         name='idhm_women',
         fact_name='idhmMulheres',
@@ -80,7 +80,7 @@ bases = (
             'IDHM': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_women_education',
         original_base='sexo-uf',
         fact_name='idhmEducacaoMulheres',
@@ -90,7 +90,7 @@ bases = (
             'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_women_income',
         original_base='sexo-uf',
         fact_name='idhmRendaMulheres',
@@ -100,7 +100,7 @@ bases = (
             'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_women_longevity',
         original_base='sexo-uf',
         fact_name='idhmLongevidadeMulheres',
@@ -111,7 +111,7 @@ bases = (
         }
     ),
 
-    Base(
+    Database(
         name='idhm_men',
         original_base='sexo-uf',
         fact_name='idhmHomens',
@@ -121,7 +121,7 @@ bases = (
             'IDHM': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_men_education',
         original_base='sexo-uf',
         fact_name='idhmEducacaoHomens',
@@ -131,7 +131,7 @@ bases = (
             'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_men_income',
         original_base='sexo-uf',
         fact_name='idhmRendaHomens',
@@ -141,7 +141,7 @@ bases = (
             'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_men_longevity',
         original_base='sexo-uf',
         fact_name='idhmLongevidadeHomens',
@@ -152,7 +152,7 @@ bases = (
         }
     ),
 
-    Base(
+    Database(
         name='idhm_black',
         original_base='cor-uf',
         fact_name='idhmNegros',
@@ -162,7 +162,7 @@ bases = (
             'IDHM': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_black_education',
         original_base='sexo-uf',
         fact_name='idhmEducacaoNegros',
@@ -172,7 +172,7 @@ bases = (
             'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_black_income',
         original_base='sexo-uf',
         fact_name='idhmRendaNegros',
@@ -182,7 +182,7 @@ bases = (
             'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_black_longevity',
         original_base='sexo-uf',
         fact_name='idhmLongevidadeNegros',
@@ -193,7 +193,7 @@ bases = (
         }
     ),
 
-    Base(
+    Database(
         name='idhm_white',
         original_base='cor-uf',
         fact_name='idhmBrancos',
@@ -203,7 +203,7 @@ bases = (
             'IDHM': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_white_education',
         original_base='sexo-uf',
         fact_name='idhmEducacaoBrancos',
@@ -213,7 +213,7 @@ bases = (
             'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_white_income',
         original_base='sexo-uf',
         fact_name='idhmRendaBrancos',
@@ -223,7 +223,7 @@ bases = (
             'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
-    Base(
+    Database(
         name='idhm_white_longevity',
         original_base='sexo-uf',
         fact_name='idhmLongevidadeBrancos',
