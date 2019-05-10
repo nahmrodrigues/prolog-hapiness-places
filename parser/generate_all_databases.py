@@ -17,6 +17,8 @@ def generate_base(database, src_path=path.join(BASE_DIR, 'assets'), dest_path=pa
     if database.query:
         df.query(database.query, inplace=True)
 
+    df = df.filter(database.columns.keys())
+
     prolog_database = convert_to_prolog(df, database.columns, database.fact_name)
 
     out_filename = path.join(dest_path, database.name + '.pl')
