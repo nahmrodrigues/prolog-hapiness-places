@@ -233,4 +233,61 @@ databases = (
             'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
+
+    # Crimes
+    Database(
+        name='murder_rate',
+        original_base='taxa-homicidios-municipio',
+        fact_name='taxaHomicidios',
+        query="período == '2010'",
+        columns={
+            'nome': TransformationTypes.NAME,
+            'período': TransformationTypes.NONE,
+            'valor': TransformationTypes.FLOAT,
+        }
+    ),
+    Database(
+        name='murder_rate_black_women',
+        original_base='taxa-de-homicidios-mulheres-negras',
+        fact_name='taxaHomicidiosMulheresNegras',
+        query="período == '2010'",
+        columns={
+            'nome': TransformationTypes.NAME,
+            'período': TransformationTypes.NONE,
+            'valor': TransformationTypes.FLOAT,
+        }
+    ),
+    Database(
+        name='murder_rate_not_black_women',
+        original_base='taxa-de-homicidios-mulheres-nao-negras',
+        fact_name='taxaHomicidiosMulheresNaoNegras',
+        query="período == '2010'",
+        columns={
+            'nome': TransformationTypes.NAME,
+            'período': TransformationTypes.NONE,
+            'valor': TransformationTypes.FLOAT,
+        }
+    ),
+    Database(
+        name='murder_rate_black_men',
+        original_base='taxa-de-homicidios-homens-negros',
+        fact_name='taxaHomicidiosHomensNegros',
+        query="período == '2010'",
+        columns={
+            'nome': TransformationTypes.NAME,
+            'período': TransformationTypes.NONE,
+            'valor': TransformationTypes.FLOAT,
+        }
+    ),
+    Database(
+        name='murder_rate_not_black_men',
+        original_base='taxa-de-homicidios-homens-nao-negros',
+        fact_name='taxaHomicidiosHomensNaoNegros',
+        query="período == '2010'",
+        columns={
+            'nome': TransformationTypes.NAME,
+            'período': TransformationTypes.NONE,
+            'valor': TransformationTypes.FLOAT,
+        }
+    ),
 )
