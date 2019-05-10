@@ -60,8 +60,60 @@
 :- use_module(knowledge_databases/murder_rate_not_black_men).
 
 % Filtros
-retornaSugestoes(Sexo, Raca, Tipo, Estado) :-
+
+menuSexo(EscolhaSexo) :-
+  menu('Qual o seu sexo?',
+        [ feminino: 'Feminino'
+        , masculino: 'Masculino'
+        ], EscolhaSexo).
+
+menuRaca(EscolhaRaca) :-
+  menu('Qual a sua raça?',
+        [ negra: 'Negra'
+        , branca: 'Branca'
+      ], EscolhaRaca).
+
+menuTipo(EscolhaTipo) :-
+  menu('Em qual o tipo de cidade você prefere morar?',
+        [ pequena: 'Cidade Pequena'
+        , média: 'Cidade Média'
+        , grande: 'Cidade Grande'
+        ], EscolhaTipo).
+
+% menuEstado(EscolhaEstado) :-
+%   menu('Em qual estado brasileiro você prefere morar?',
+%         [ ac: 'Acre'
+%         , al: 'Alagoas'
+%         , ap: 'Amapá'
+%         , am: 'Amazonas'
+%         , ba: 'Bahia'
+%         , ce: 'Ceará'
+%         , df: 'Distrito Federal'
+%         , es: 'Espírito Santo'
+%         , go: 'Goiás'
+%         , ma: 'Maranhão'
+%         , mt: 'Mato Grosso'
+%         , ms: 'Mato Grosso do Sul'
+%         , mg: 'Minas Gerais'
+%         , pa: 'Pará'
+%         , pb: 'Paraíba'
+%         , pr: 'Paraná'
+%         , pe: 'Pernambuco'
+%         , pi: 'Piauí'
+%         , rj: 'Rio de Janeiro'
+%         , rn: 'Rio Grande do Norte'
+%         , rs: 'Rio Grande do Sul'
+%         , ro: 'Rondônia'
+%         , rr: 'Roraima'
+%         , sc: 'Santa Catarina'
+%         , sp: 'São Paulo'
+%         , se: 'Sergipe'
+%         , to: 'Tocantins'
+%         ], EscolhaEstado).
+
+iniciar(Estado) :-
   retractall(possiveisLocalidades(_, _)),
+  menuSexo(Sexo), menuRaca(Raca), menuTipo(Tipo),
   sugere(Sexo, Raca, Tipo, Estado, Id, IndiceGeral),
   assertz((possiveisLocalidades(Id, IndiceGeral))),
   listaLocalidades(ListaSugestoes),
