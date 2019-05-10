@@ -61,19 +61,22 @@
 
 % Filtros
 retornaSugestoes(Sexo, Raca, Tipo, Estado) :-
+  retractall(possiveisLocalidades(_, _)),
   sugere(Sexo, Raca, Tipo, Estado, Id, IndiceGeral),
   assertz((possiveisLocalidades(Id, IndiceGeral))),
   listaLocalidades(ListaSugestoes),
   reverse(ListaSugestoes, ListaReversa),
+  shell(clear),
+  write('\nOs lugares onde você tem maior possibilidade de ser feliz são: \n'),
   print(5, ListaReversa), fail, !;
-  nl, write('FIM'), nl.
+  nl, nl, write('FIM'), nl.
 
 print(0, _) :- !.
 print(_, []).
 print(N, [_/Id|T]) :-
   localidade(Id, Nome, Estado),
   write('\n* '), write(Nome), write(' - '), write(Estado),
-  N1 is N - 1, print(N1, T).
+  N1 is N-1, print(N1, T).
 
 listaLocalidades(ListaPossiveisLocalidades) :-
   setof(IndiceGeral/Id, possiveisLocalidades(Id, IndiceGeral), ListaPossiveisLocalidades).
