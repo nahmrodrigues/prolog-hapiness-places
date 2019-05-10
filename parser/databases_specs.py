@@ -164,7 +164,7 @@ databases = (
     ),
     Database(
         name='idhm_black_education',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmEducacaoNegros',
         query="ANO == '2010' and DESAGREGAÇÃO == 'NEGRO'",
         columns={
@@ -174,7 +174,7 @@ databases = (
     ),
     Database(
         name='idhm_black_income',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmRendaNegros',
         query="ANO == '2010' and DESAGREGAÇÃO == 'NEGRO'",
         columns={
@@ -184,7 +184,7 @@ databases = (
     ),
     Database(
         name='idhm_black_longevity',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmLongevidadeNegros',
         query="ANO == '2010' and DESAGREGAÇÃO == 'NEGRO'",
         columns={
@@ -205,7 +205,7 @@ databases = (
     ),
     Database(
         name='idhm_white_education',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmEducacaoBrancos',
         query="ANO == '2010' and DESAGREGAÇÃO == 'BRANCO'",
         columns={
@@ -215,7 +215,7 @@ databases = (
     ),
     Database(
         name='idhm_white_income',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmRendaBrancos',
         query="ANO == '2010' and DESAGREGAÇÃO == 'BRANCO'",
         columns={
@@ -225,7 +225,7 @@ databases = (
     ),
     Database(
         name='idhm_white_longevity',
-        original_base='sexo-uf',
+        original_base='cor-uf',
         fact_name='idhmLongevidadeBrancos',
         query="ANO == '2010' and DESAGREGAÇÃO == 'BRANCO'",
         columns={
