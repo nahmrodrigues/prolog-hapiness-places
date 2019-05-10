@@ -5,11 +5,11 @@ from id_to_uf import id_to_uf
 from state_to_uf import state_to_uf
 
 class TransformationTypes(Enum):
-    NONE, ID_UF, STATE_UF, FLOAT = range(4)
+    NONE, ID_UF, STATE_UF, FLOAT, NAME = range(5)
 
 def _format_column_values(transformation, value):
     """
-    Tranform a column value representation for better fitting database
+    Transform a column value representation for better fitting database
 
     :param int transformation: type of tranformation to be applied
     :param str value: the value to be tranformed
@@ -23,6 +23,8 @@ def _format_column_values(transformation, value):
         result = state_to_uf[value]
     elif transformation == TransformationTypes.ID_UF:
         result = id_to_uf[int(value)]
+    elif transformation == TransformationTypes.NAME:
+        result = str(value).replace(' ', '_').replace("'", '')
     elif transformation == TransformationTypes.FLOAT:
         result = str(value).replace(',', '.')
 

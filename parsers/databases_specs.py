@@ -13,7 +13,7 @@ databases = (
         query="ANO == '2010'",
         columns={
             'Codmun6': TransformationTypes.NONE,
-            'Município': TransformationTypes.NONE,
+            'Município': TransformationTypes.NAME,
             'UF': TransformationTypes.ID_UF,
         }
     ),
