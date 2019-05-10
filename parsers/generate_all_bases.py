@@ -7,6 +7,9 @@ from bases import bases
 def generate_base(base, src_path='../assets', dest_path='../knowledge_bases'):
     df = pd.read_csv(path.join(src_path, base.original_base + '.csv'), dtype='unicode')
 
+    if base.query:
+        df.query(base.query, inplace=True)
+
     prolog_base = convert_to_prolog(df, base.columns, base.fact_name)
 
     out_filename = path.join(dest_path, base.name + '.pl')

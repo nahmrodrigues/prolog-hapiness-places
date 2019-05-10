@@ -1,6 +1,4 @@
 import pandas as pd
-
-from os import path
 from enum import Enum
 
 from id_to_uf import id_to_uf
