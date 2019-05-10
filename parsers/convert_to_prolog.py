@@ -3,10 +3,11 @@ import pandas as pd
 from os import path
 from enum import Enum
 
-from idToUfDict import idToUf
+from id_to_uf import id_to_uf
+from state_to_uf import state_to_uf
 
 class TransformationTypes(Enum):
-    NONE, UF, FLOAT = range(3)
+    NONE, ID_UF, STATE_UF, FLOAT = range(4)
 
 def _format_column_values(transformation, value):
     """
@@ -20,8 +21,10 @@ def _format_column_values(transformation, value):
 
     if transformation == TransformationTypes.NONE:
         result = value
-    elif transformation == TransformationTypes.UF:
-        result = idToUf[int(value)]
+    elif transformation == TransformationTypes.STATE_UF:
+        result = state_to_uf[value]
+    elif transformation == TransformationTypes.ID_UF:
+        result = id_to_uf[int(value)]
     elif transformation == TransformationTypes.FLOAT:
         result = str(value).replace(',', '.')
 

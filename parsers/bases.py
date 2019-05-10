@@ -15,7 +15,7 @@ bases = (
         columns={
             'Codmun6': TransformationTypes.NONE,
             'Município': TransformationTypes.NONE,
-            'UF': TransformationTypes.UF,
+            'UF': TransformationTypes.ID_UF,
         }
     ),
     Base(
@@ -71,8 +71,8 @@ bases = (
         name='idhm_women',
         fact_name='idhmMulheres',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro mulher
@@ -80,8 +80,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmEducacaoMulheres',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_E': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro mulher
@@ -89,8 +89,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmRendaMulheres',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_R': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro mulher
@@ -98,8 +98,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmLongevidadeMulheres',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_L': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
 
@@ -108,8 +108,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmHomens',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro homem
@@ -117,8 +117,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmEducacaoHomens',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_E': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro homem
@@ -126,8 +126,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmRendaHomens',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_R': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro homem
@@ -135,8 +135,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmLongevidadeHomens',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_L': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
 
@@ -145,8 +145,8 @@ bases = (
         original_base='cor-uf',
         fact_name='idhmNegros',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro negro
@@ -154,8 +154,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmEducacaoNegros',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_E': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro negro
@@ -163,8 +163,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmRendaNegros',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_R': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro negro
@@ -172,8 +172,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmLongevidadeNegros',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_L': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
 
@@ -182,8 +182,8 @@ bases = (
         original_base='cor-uf',
         fact_name='idhmBrancos',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro branco
@@ -191,8 +191,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmEducacaoBrancos',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_E': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_E': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro branco
@@ -200,8 +200,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmRendaBrancos',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_R': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_R': TransformationTypes.FLOAT,
         }
     ),
     Base( # Adicionar filtro branco
@@ -209,8 +209,8 @@ bases = (
         original_base='sexo-uf',
         fact_name='idhmLongevidadeBrancos',
         columns={
-            'CODIGO_ID': TransformationTypes.NONE,
-            'IDHM_L': TransformationTypes.NONE,
+            'CODIGO_ID': TransformationTypes.STATE_UF,
+            'IDHM_L': TransformationTypes.FLOAT,
         }
     ),
 )

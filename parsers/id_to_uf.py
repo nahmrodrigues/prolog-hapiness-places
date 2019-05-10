@@ -1,4 +1,4 @@
-idToUf = {
+id_to_uf = {
     11: 'ro',
     12: 'ac',
     13: 'am',
