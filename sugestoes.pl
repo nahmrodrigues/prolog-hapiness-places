@@ -1,141 +1,82 @@
 :- use_module(library(lists)).
 
-:- [hprolog].
-:- use_module(hprolog).
+:- consult(utils/hprolog).
+:- use_module(utils/hprolog).
 
-% Dados de municipios (mapear para todos os municipios):
+:- consult(knowledge_databases/localities).
+:- consult(knowledge_databases/idhm).
+:- consult(knowledge_databases/idhm_education).
+:- consult(knowledge_databases/idhm_income).
+:- consult(knowledge_databases/idhm_longevity). 
+:- consult(knowledge_databases/population). 
+:- consult(knowledge_databases/idhm_women).
+:- consult(knowledge_databases/idhm_women_education).
+:- consult(knowledge_databases/idhm_women_income).
+:- consult(knowledge_databases/idhm_women_longevity).
+:- consult(knowledge_databases/idhm_men).
+:- consult(knowledge_databases/idhm_men_education).
+:- consult(knowledge_databases/idhm_men_income).
+:- consult(knowledge_databases/idhm_men_longevity).
+:- consult(knowledge_databases/idhm_black).
+:- consult(knowledge_databases/idhm_black_education).
+:- consult(knowledge_databases/idhm_black_income).
+:- consult(knowledge_databases/idhm_black_longevity).
+:- consult(knowledge_databases/idhm_white).
+:- consult(knowledge_databases/idhm_white_education).
+:- consult(knowledge_databases/idhm_white_income).
+:- consult(knowledge_databases/idhm_white_longevity).
+:- consult(knowledge_databases/murder_rate).
+:- consult(knowledge_databases/murder_rate_black_women).
+:- consult(knowledge_databases/murder_rate_not_black_women).
+:- consult(knowledge_databases/murder_rate_black_men).
+:- consult(knowledge_databases/murder_rate_not_black_men).
 
-localidade(2, gama, df).
-localidade(1, taguatinga, df).
-localidade(3, barreiras, ba).
-localidade(4, ceilandia, df).
-
-idhm(2, 5.3).
-idhm(1, 5.0).
-idhm(3, 4.5).
-idhm(4, 6.2).
-
-idhmEducacao(2, 5.3).
-idhmEducacao(1, 5.0).
-idhmEducacao(3, 4.5).
-idhmEducacao(4, 6.2).
-
-idhmRenda(2, 5.3).
-idhmRenda(1, 5.0).
-idhmRenda(3, 4.5).
-idhmRenda(4, 6.2).
-
-idhmLongevidade(2, 5.3).
-idhmLongevidade(1, 10).
-idhmLongevidade(3, 4.5).
-idhmLongevidade(4, 6.2).
-
-populacao(2, 20000).
-populacao(1, 40000).
-populacao(3, 150000).
-populacao(4, 100000).
-
-
-% Dados que so existem por estado (mapear para todos):
-
-idhmMulheres(df, 5.3).
-idhmMulheres(ba, 5.0).
-
-idhmHomens(df, 5.3).
-idhmHomens(ba, 5.0).
-
-idhmNegros(df, 5.3).
-idhmNegros(ba, 5.0).
-
-idhmBrancos(df, 5.3).
-idhmBrancos(ba, 5.0).
-
-idhmEducacaoMulheres(df, 5.3).
-idhmEducacaoMulheres(ba, 5.0).
-
-idhmEducacaoHomens(df, 5.3).
-idhmEducacaoHomens(ba, 5.0).
-
-idhmEducacaoNegros(df, 5.3).
-idhmEducacaoNegros(ba, 5.0).
-
-idhmEducacaoBrancos(df, 5.3).
-idhmEducacaoBrancos(ba, 5.0).
-
-idhmRendaMulheres(df, 5.3).
-idhmRendaMulheres(ba, 5.0).
-
-idhmRendaHomens(df, 5.3).
-idhmRendaHomens(ba, 5.0).
-
-idhmRendaNegros(df, 5.3).
-idhmRendaNegros(ba, 5.0).
-
-idhmRendaBrancos(df, 5.3).
-idhmRendaBrancos(ba, 5.0).
-
-idhmLongevidadeMulheres(df, 5.3).
-idhmLongevidadeMulheres(ba, 5.0).
-
-idhmLongevidadeHomens(df, 5.3).
-idhmLongevidadeHomens(ba, 5.0).
-
-idhmLongevidadeNegros(df, 5.3).
-idhmLongevidadeNegros(ba, 5.0).
-
-idhmLongevidadeBrancos(df, 5.3).
-idhmLongevidadeBrancos(ba, 5.0).
-
-% Dados de criminalidade
-
-taxaHomicidios(2, 10.0).
-taxaHomicidios(1, 10.0).
-taxaHomicidios(3, 5.0).
-taxaHomicidios(4, 5.0).
-
-taxaHomicidiosMulheresNegras(df, 5.0).
-taxaHomicidiosMulheresNegras(ba, 5.0).
-
-taxaHomicidiosMulheresNaoNegras(df, 5.0).
-taxaHomicidiosMulheresNaoNegras(ba, 5.0).
-
-taxaHomicidiosHomensNegros(df, 5.0).
-taxaHomicidiosHomensNegros(ba, 5.0).
-
-taxaHomicidiosNaoNegros(df, 5.0).
-taxaHomicidiosNaoNegros(ba, 5.0).
-
+:- use_module(knowledge_databases/localities).
+:- use_module(knowledge_databases/idhm).
+:- use_module(knowledge_databases/idhm_education).
+:- use_module(knowledge_databases/idhm_income).
+:- use_module(knowledge_databases/idhm_longevity). 
+:- use_module(knowledge_databases/population). 
+:- use_module(knowledge_databases/idhm_women).
+:- use_module(knowledge_databases/idhm_women_education).
+:- use_module(knowledge_databases/idhm_women_income).
+:- use_module(knowledge_databases/idhm_women_longevity).
+:- use_module(knowledge_databases/idhm_men).
+:- use_module(knowledge_databases/idhm_men_education).
+:- use_module(knowledge_databases/idhm_men_income).
+:- use_module(knowledge_databases/idhm_men_longevity).
+:- use_module(knowledge_databases/idhm_black).
+:- use_module(knowledge_databases/idhm_black_education).
+:- use_module(knowledge_databases/idhm_black_income).
+:- use_module(knowledge_databases/idhm_black_longevity).
+:- use_module(knowledge_databases/idhm_white).
+:- use_module(knowledge_databases/idhm_white_education).
+:- use_module(knowledge_databases/idhm_white_income).
+:- use_module(knowledge_databases/idhm_white_longevity).
+:- use_module(knowledge_databases/murder_rate).
+:- use_module(knowledge_databases/murder_rate_black_women).
+:- use_module(knowledge_databases/murder_rate_not_black_women).
+:- use_module(knowledge_databases/murder_rate_black_men).
+:- use_module(knowledge_databases/murder_rate_not_black_men).
 
 % Filtros
-cidadePequena(Id, Populacao) :- populacao(Id, Populacao), Populacao =< 50000.
-cidadeMedia(Id, Populacao) :- populacao(Id, Populacao), Populacao > 50000, Populacao =< 150000.
-cidadeGrande(Id, Populacao) :- populacao(Id, Populacao), Populacao > 150000.
-filtro(Tipo, Estado, Id) :-
-    Tipo = 'pequena' -> cidadePequena(Id, _), localidade(Id, _, Estado);
-    (Tipo = 'média' -> cidadeMedia(Id, _), localidade(Id, _, Estado));
-    (Tipo = 'grande' -> cidadeGrande(Id, _), localidade(Id, _, Estado)).
-
-retornaSugestoes(Sexo, Raca, Tipo, Estado, ListaSugestoes) :-
+retornaSugestoes(Sexo, Raca, Tipo, Estado) :-
   sugere(Sexo, Raca, Tipo, Estado, Id, IndiceGeral),
   assertz((possiveisLocalidades(Id, IndiceGeral))),
-  listaLocalidades(Lista),
-  sort(2, @=<, Lista, ListaPossiveisLocalidades),
-  maiores(ListaPossiveisLocalidades, ListaSugestoes),
-  printSugestoes(ListaSugestoes), fail.
+  listaLocalidades(ListaSugestoes),
+  reverse(ListaSugestoes, ListaReversa),
+  print(5, ListaReversa), fail, !;
+  nl, write('FIM'), nl.
 
-printSugestoes([]).
-printSugestoes([Id/_|Tail]) :-
+print(0, _) :- !.
+print(_, []).
+print(N, [_/Id|T]) :-
   localidade(Id, Nome, Estado),
   write('\n* '), write(Nome), write(' - '), write(Estado),
-  printSugestoes(Tail).
-
-maiores(ListaPossiveisLocalidades, ListaSugestoes) :-
-  length(ListaPossiveisLocalidades, Len),
-  Len < 5 -> take(Len, ListaPossiveisLocalidades, ListaSugestoes);
-  (Len >= 5 -> take(5, ListaPossiveisLocalidades, ListaSugestoes)).
+  N1 is N - 1, print(N1, T).
 
 listaLocalidades(ListaPossiveisLocalidades) :-
-  findall(Id/IndiceGeral, possiveisLocalidades(Id, IndiceGeral), ListaPossiveisLocalidades).
+  setof(IndiceGeral/Id, possiveisLocalidades(Id, IndiceGeral), ListaPossiveisLocalidades).
 
 sugere(Sexo, Raca, Tipo, Estado, Id, IndiceGeral) :-
   filtro(Tipo, Estado, Id), % ids das possiveis cidades, filtradas por tipo e estado
@@ -143,21 +84,30 @@ sugere(Sexo, Raca, Tipo, Estado, Id, IndiceGeral) :-
   indicesCriminalidade(Sexo, Raca, Id, IndiceCriminalidade),
   indicesGerais(IndiceIDHM, IndiceCriminalidade, IndiceGeral).
 
+filtro(Tipo, Estado, Id) :-
+    Tipo = 'pequena' -> cidadePequena(Id, _), localidade(Id, _, Estado);
+    (Tipo = 'média' -> cidadeMedia(Id, _), localidade(Id, _, Estado));
+    (Tipo = 'grande' -> cidadeGrande(Id, _), localidade(Id, _, Estado)).
+
+cidadePequena(Id, Populacao) :- populacao(Id, Populacao), Populacao =< 50000.
+cidadeMedia(Id, Populacao) :- populacao(Id, Populacao), Populacao > 50000, Populacao =< 150000.
+cidadeGrande(Id, Populacao) :- populacao(Id, Populacao), Populacao > 150000.
+
 indicesGerais(IndiceIDHM, IndiceCriminalidade, IndiceGeral) :-
   IndiceGeral is (IndiceIDHM - IndiceCriminalidade).
 
 indicesCriminalidade(Sexo, Raca, Id, IndiceCriminalidade) :-
-  Sexo = 'fem', Raca = 'neg' -> calculoCriminalidade(Id, 1.0, 0.0, 0.0, 0.0, IndiceCriminalidade);
-  (Sexo = 'fem', Raca = 'nne' -> calculoCriminalidade(Id, 0.0, 1.0, 0.0, 0.0, IndiceCriminalidade));
-  (Sexo = 'mas', Raca = 'neg' -> calculoCriminalidade(Id, 0.0, 0.0, 1.0, 0.0, IndiceCriminalidade));
-  (Sexo = 'mas', Raca = 'bra' -> calculoCriminalidade(Id, 0.0, 0.0, 0.0, 1.0, IndiceCriminalidade)).
+  Sexo = 'feminino', Raca = 'negra' -> calculoCriminalidade(Id, 1.0, 0.0, 0.0, 0.0, IndiceCriminalidade);
+  (Sexo = 'feminino', Raca = 'branca' -> calculoCriminalidade(Id, 0.0, 1.0, 0.0, 0.0, IndiceCriminalidade));
+  (Sexo = 'masculino', Raca = 'negra' -> calculoCriminalidade(Id, 0.0, 0.0, 1.0, 0.0, IndiceCriminalidade));
+  (Sexo = 'masculino', Raca = 'branca' -> calculoCriminalidade(Id, 0.0, 0.0, 0.0, 1.0, IndiceCriminalidade)).
 
 
 calculoCriminalidade(Id, PesoMN, PesoMNN, PesoHN, PesoHNN, IndiceCriminalidade) :-
-  taxaHomicidios(Id, Taxa),
-  localidade(Id, _, Estado),
-  taxaHomicidiosMulheresNegras(Estado, TaxaMN), taxaHomicidiosMulheresNaoNegras(Estado, TaxaMNN),
-  taxaHomicidiosHomensNegros(Estado, TaxaHN), taxaHomicidiosNaoNegros(Estado, TaxaHNN),
+  taxaHomicidios(Nome, _, Taxa),
+  localidade(Id, Nome, Estado),
+  taxaHomicidiosMulheresNegras(Estado, _, TaxaMN), taxaHomicidiosMulheresNaoNegras(Estado, _,TaxaMNN),
+  taxaHomicidiosHomensNegros(Estado, _, TaxaHN), taxaHomicidiosHomensNaoNegros(Estado, _, TaxaHNN),
   IndiceCriminalidade is (Taxa + 
                          (TaxaMN * PesoMN) + 
                          (TaxaMNN * PesoMNN) + 
@@ -165,10 +115,10 @@ calculoCriminalidade(Id, PesoMN, PesoMNN, PesoHN, PesoHNN, IndiceCriminalidade) 
                          (TaxaHNN * PesoHNN)).
 
 indicesIDHM(Sexo, Raca, Id, IndiceIDHM) :-
-    Sexo = 'fem', Raca = 'neg' -> calculoIDHM(Id, 1.0, 0.0, 1.0, 0.0, IndiceIDHM);
-    (Sexo = 'fem', Raca = 'nne' -> calculoIDHM(Id, 1.0, 0.0, 0.0, 1.0, IndiceIDHM));
-    (Sexo = 'mas', Raca = 'neg' -> calculoIDHM(Id, 0.0, 1.0, 1.0, 0.0, IndiceIDHM));
-    (Sexo = 'mas', Raca = 'bra' -> calculoIDHM(Id, 0.0, 1.0, 0.0, 1.0, IndiceIDHM)).
+    Sexo = 'feminino', Raca = 'negra' -> calculoIDHM(Id, 1.0, 0.0, 1.0, 0.0, IndiceIDHM);
+    (Sexo = 'feminino', Raca = 'branca' -> calculoIDHM(Id, 1.0, 0.0, 0.0, 1.0, IndiceIDHM));
+    (Sexo = 'masculino', Raca = 'negra' -> calculoIDHM(Id, 0.0, 1.0, 1.0, 0.0, IndiceIDHM));
+    (Sexo = 'masculino', Raca = 'branca' -> calculoIDHM(Id, 0.0, 1.0, 0.0, 1.0, IndiceIDHM)).
 
 
 calculoIDHM(Id, PesoF, PesoM, PesoN, PesoB, IndiceIDHM) :-
