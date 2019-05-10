@@ -24,7 +24,7 @@ def _format_column_values(transformation, value):
     elif transformation == TransformationTypes.ID_UF:
         result = id_to_uf[int(value)]
     elif transformation == TransformationTypes.NAME:
-        result = str(value).replace(' ', '_').replace("'", '')
+        result = str(value).lower().replace(' ', '_').replace("'", '')
     elif transformation == TransformationTypes.FLOAT:
         result = str(value).replace(',', '.')
 
